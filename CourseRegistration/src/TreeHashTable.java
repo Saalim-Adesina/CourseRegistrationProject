@@ -1,3 +1,7 @@
+import Tree.Tree;
+import Queue.LinkedQueue;
+import Queue.Queue;
+
 public class TreeHashTable<E> {
     private Entry[] hashArray;
     private Entry defunct;
@@ -47,8 +51,94 @@ public class TreeHashTable<E> {
         return null;
     }
 
-    public void addStudent(Student s){
+    public void addStudent(int k, Student s){
+    	
+    	Course course  = search(k);
+    	
+    	if (course == null) {
+    		
+    		throw new IllegalArgumentException("No course found with CRN: " + k);
+    		
+    	}
+    	else {
+    		
+    		if (course.getEnrolled().count() == course.getCapacity()) {
+    			
+    			course.getWaitingList().enqueue(s);
+    			
+    		}
+    		else {
+    			
+    			course.getEnrolled().insert(s.getId(), s);
+    			
+    		}
+    	}
 
+    }
+    
+    public void dropStudent(int c, int s) {
+    	
+    	Course course  = search(c);
+    	
+    	if (course == null) {
+    		
+    		throw new IllegalArgumentException("No course found with CRN: " + c);
+    		
+    	}
+    	else {
+    		
+    		boolean deleted = course.getEnrolled().delete(s);
+    		
+    		if (deleted && !course.getWaitingList().isEmpty()) {
+    			Student waiting = course.getWaitingList().dequeue();
+    			course.getEnrolled().insert(waiting.getId(), waiting);
+    			
+    		}
+    		if (!deleted) {
+    			throw new IllegalArgumentException("No student found with id:" + s);
+    		}
+    		
+    	}
+    	
+    }
+    
+    public void raiseCapacity(int c, int r) {
+    	
+    	Course course  = search(c);
+    	
+    	if (course == null) {
+    		
+    		throw new IllegalArgumentException("No course found with CRN: " + c);
+    		
+    	}
+    	
+    	course.setCapacity(course.getCapacity()+r);
+    	
+    	int moved = 0;
+    	
+    	while (!course.getWaitingList().isEmpty() && moved < r) {
+    	    
+    		Student waiting = course.getWaitingList().dequeue();
+    	    course.getEnrolled().insert(waiting.getId(), waiting);
+    	    moved++;
+    	
+    	}
+    	
+    }
+    
+    public void printStudents(int n) {
+    	
+    	Course course = search(n);
+    	
+    	if (course == null) {
+    		
+    		throw new IllegalArgumentException("No course found with CRN: " + n);
+    		
+    	}
+    	
+    	course.getEnrolled().traverse(2);
+    	
+    	
     }
 }
 
