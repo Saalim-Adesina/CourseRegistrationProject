@@ -2,9 +2,11 @@ package CourseRegistration;
 import Tree.Tree;
 import Queue.LinkedQueue;
 import Queue.Queue;
+
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class TreeHashTable<E> {
+public class TreeHashTable implements Serializable {
     private Entry[] hashArray;
     private Entry defunct;
 

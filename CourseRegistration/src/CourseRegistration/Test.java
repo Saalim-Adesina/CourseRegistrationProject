@@ -8,7 +8,7 @@ public class Test {
         Scanner scanner = new Scanner(System.in);
         TreeHashTable table = null;
 
-        // Load existing data from file
+        
         try {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("data.ser"));
             table = (TreeHashTable) in.readObject();
