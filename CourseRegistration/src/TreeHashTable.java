@@ -1,4 +1,6 @@
-public class TreeHashTable<E> {
+import java.io.Serializable;
+
+public class TreeHashTable<E> implements Serializable {
     private Entry[] hashArray;
     private Entry defunct;
 

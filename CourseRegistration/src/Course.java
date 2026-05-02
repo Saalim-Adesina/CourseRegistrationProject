@@ -1,13 +1,23 @@
 import Queue.Queue;
 import Tree.Tree;
+// TODO
+// 1) Implement
+import java.io.Serializable;
 
-public class Course {
+public class Course implements Serializable {
     private int CRN;
     private String name;
     private int capacity;
     private Tree<Student> enrolled;
     private Queue<Student> waitingList;
 
+    public Course(int crn, String n, int cap, Tree<Student> enrolled, Queue<Student> waitingList){
+      this.CRN = crn;
+      this.name = n;
+      this.capacity = cap;
+      this.enrolled = enrolled;
+      this.waitingList = waitingList;
+    }
     public int getCRN() {
         return CRN;
     }
