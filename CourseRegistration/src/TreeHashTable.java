@@ -1,6 +1,7 @@
 import Tree.Tree;
 import Queue.LinkedQueue;
 import Queue.Queue;
+import java.util.Arrays;
 
 public class TreeHashTable<E> {
     private Entry[] hashArray;
@@ -140,5 +141,31 @@ public class TreeHashTable<E> {
     	
     	
     }
+    
+    public Course[] studentEnrolled(int i) {
+        
+    	Course[] results = new Course[hashArray.length];
+        
+        int count = 0;
+    	for (int j = 0; j < hashArray.length; j++) {
+    		if (hashArray[j] != null && hashArray[j] != defunct) {
+    		    Course course = (Course) hashArray[j].getData();
+    		    Student found = (Student) course.getEnrolled().search(i);
+    		    if (found != null) {
+    		        results[count] = course;
+    		        count++;
+    		    }
+    		}
+    	}
+    	if (count==0) {
+    		throw new IllegalArgumentException("No courses found for student with id: " + i);
+    	}
+    	else {
+    		return Arrays.copyOf(results, count);
+    	}
+    	
+    }
+    
+    
 }
 
