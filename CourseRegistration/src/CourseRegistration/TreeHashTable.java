@@ -1,3 +1,4 @@
+package CourseRegistration;
 import Tree.Tree;
 import Queue.LinkedQueue;
 import Queue.Queue;

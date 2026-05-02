@@ -1,3 +1,5 @@
+package CourseRegistration;
+
 import java.io.Serializable;
 import Queue.LinkedQueue;
 import Queue.Queue;

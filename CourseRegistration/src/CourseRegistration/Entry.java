@@ -1,3 +1,4 @@
+package CourseRegistration;
 import java.io.Serializable;
 
 public class Entry<E> implements Serializable {
