@@ -16,8 +16,8 @@ public class Course implements Serializable {
         this.CRN = CRN;
         this.name = name;
         this.capacity = capacity;
-        this.enrolled = new Tree<>();        // empty BST for enrolled students
-        this.waitingList = new LinkedQueue<>(); // empty queue for waiting list
+        this.enrolled = new Tree<Student>();        // empty BST for enrolled students
+        this.waitingList = new LinkedQueue<Student>(); // empty queue for waiting list
     }
 
     public int getCRN() { return CRN; }
