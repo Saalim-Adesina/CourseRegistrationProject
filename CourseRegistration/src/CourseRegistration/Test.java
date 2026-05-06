@@ -1,3 +1,11 @@
+
+// Data Structures Final Project Team
+
+// Omair Nawaz - 202410028
+// Saalim Adesina - 202401340
+// Abdullah Al-Mamun - 202413446
+
+
 package CourseRegistration;
 
 import java.io.*;
@@ -8,7 +16,7 @@ public class Test {
         Scanner scanner = new Scanner(System.in);
         TreeHashTable table = null;
 
-        // Load existing data from file
+        
         try {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("data.ser"));
             table = (TreeHashTable) in.readObject();

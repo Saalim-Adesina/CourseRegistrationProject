@@ -15,7 +15,6 @@ public class Node <E> implements Serializable {
 		rightChild=null;
 	}
 	public void display() {
-		System.out.print(key+":");
 		System.out.println(data);
 
 	}
